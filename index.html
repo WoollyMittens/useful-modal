@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>useful.modal.js: Modal Popup Window</title>
+		<style>
+			html { font-family:Sans-Serif; font-size:75%; height:100%; }
+			body { _height:100%; line-height:180%; margin:0; min-height:100%; padding:0; }
+			.padded { padding:2em; }
+		</style>
+		<!--[if lte IE 9]>
+			<meta http-equiv="imagetoolbar" content="no"/>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+			<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<section class="example rightExample clearfix">
+			<article class="example">
+				<h2>Modal Popup Window</h2>
+				<p>A link is opened in a modal window layer and animated using CSS3 transitions. It can be modified and closed from within the iframe.</p>
+				<p><a class="button downloadButton" href="http://www.woollymittens.nl/downloads/modal.zip" target="_blank">Download</a></p>
+			</article>
+			<aside class="example">
+
+				<!-- Cut below this -->
+				<style>@import url("./css/modal.css")</style>
+				<p>
+					<a class="openModal button" href="./html/popup.html" title="Modal Dialog">Open Modal Dialog</a>
+				</p>
+				<script src="./js/useful.modal.js"></script>
+				<script>
+				//<!--
+					useful.css.select({
+						rule : '.openModal',
+						handler : useful.modal.setup,
+						data : {
+							'id' : 'modalDialog',
+							'class' : null,
+							'title' : null,
+							'href' : null,
+							'width' : null, // inherited from stylesheet
+							'height' : null // inherited from stylesheet
+						}
+					});
+				//-->
+				</script>
+				<!-- Cut above this -->
+
+			</aside>
+		</section>
+	</body>
+</html>

@@ -1,0 +1,147 @@
+/*
+	Example Styling for a Pin Board Carousel
+*/
+@media all {
+  /*
+  	Modal Dialog
+  */
+  div#modalDialog {
+    height: 100%;
+    left: 0px;
+    position: fixed;
+    _position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: 10000;
+  }
+
+  /*
+  	Background
+  */
+  div#modalDialog div#modalDialog_background {
+    -webkit-transition-property: all;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+    -moz-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    transition-timing-function: ease;
+    background: #000;
+    height: 100%;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: 11000;
+  }
+  div#modalDialog .modalDialog_background_hidden {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    visibility: hidden;
+  }
+  div#modalDialog .modalDialog_background_visible {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+    opacity: 0.6;
+    visibility: visible;
+  }
+
+  /*
+  	Foreground
+  */
+  div#modalDialog div#modalDialog_foreground {
+    -webkit-transition-property: all;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+    -moz-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    transition-timing-function: ease;
+    background: #e7e7e7;
+    border: solid 1px #7e838c;
+    border-radius: 6px 6px 0 0;
+    height: 474px;
+    left: 50%;
+    margin: -227px 0 0 -343px;
+    position: absolute;
+    top: 50%;
+    width: 668px;
+    z-index: 12000;
+  }
+  div#modalDialog .modalDialog_foreground_hidden {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    visibility: hidden;
+  }
+  div#modalDialog .modalDialog_foreground_visible {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /*
+  	Content
+  */
+  div#modalDialog div#modalDialog_foreground button#modalDialog_closer {
+    background: Transparent none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 18px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 24px;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 12px;
+    text-shadow: #ccc 1px 1px 0;
+    top: 6px;
+    width: 24px;
+  }
+  div#modalDialog div#modalDialog_foreground h1#modalDialog_title {
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(3%, #ffffff), color-stop(3%, #cccccc), color-stop(97%, #999999), color-stop(97%, #666666), color-stop(100%, #666666));
+    background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 3%, #cccccc 3%, #999999 97%, #666666 97%, #666666 100%);
+    background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 3%, #cccccc 3%, #999999 97%, #666666 97%, #666666 100%);
+    background: -o-linear-gradient(top, #ffffff 0%, #ffffff 3%, #cccccc 3%, #999999 97%, #666666 97%, #666666 100%);
+    background: linear-gradient(top, #ffffff 0%, #ffffff 3%, #cccccc 3%, #999999 97%, #666666 97%, #666666 100%);
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    -ms-border-radius: 6px 6px 0 0;
+    -o-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+    background-color: #ccc;
+    color: #333;
+    font-size: 15px;
+    font-size: 1.25rem;
+    height: 40px;
+    line-height: 38px;
+    margin: 0;
+    padding: 0 15px 0 15px;
+    text-shadow: #ccc 1px 1px 0;
+  }
+  div#modalDialog div#modalDialog_foreground iframe#modalDialog_content {
+    border: none;
+    height: 434px;
+    width: 668px;
+  }
+
+  div#modalDialog.yellow div#modalDialog_foreground h1#modalDialog_title {
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffcc), color-stop(3%, #ffffcc), color-stop(3%, #cccc99), color-stop(97%, #999966), color-stop(97%, #666633), color-stop(100%, #666633));
+    background: -webkit-linear-gradient(top, #ffffcc 0%, #ffffcc 3%, #cccc99 3%, #999966 97%, #666633 97%, #666633 100%);
+    background: -moz-linear-gradient(top, #ffffcc 0%, #ffffcc 3%, #cccc99 3%, #999966 97%, #666633 97%, #666633 100%);
+    background: -o-linear-gradient(top, #ffffcc 0%, #ffffcc 3%, #cccc99 3%, #999966 97%, #666633 97%, #666633 100%);
+    background: linear-gradient(top, #ffffcc 0%, #ffffcc 3%, #cccc99 3%, #999966 97%, #666633 97%, #666633 100%);
+    background-color: #cc9;
+    color: #330 !important;
+  }
+}
