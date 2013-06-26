@@ -43,12 +43,19 @@ useful.modal.setup(parent, {
 ```
 
 **id : {string}** - The ID attribute of an element somewhere in the document.
+
 **parent : {DOM node}** - The DOM element around which the functionality is centred.
+
 **id : {string}** - The ID of the modal popup the script will create.
+
 **class : {string}** - An optional CSS class name for the modal popup the script will create.
+
 **title : {string}** - Overrides the title of the modal popup. By default this is the title attribute of the link or its inner text.
+
 **href : {string}** - Overrides the URL loaded inside modal popup. By default this is the href attribute of the link.
+
 **width : {integer}** - Overrides the width of the modal popup in pixels. By default this is defined in the stylesheet.
+
 **height : {integer}** - Overrides the height of the modal popup in pixels. By default this is defined in the stylesheet.
 
 ```javascript
@@ -57,6 +64,7 @@ useful.modal.update(changes)
 ```
 
 **id : {string}** - The ID of the popup to alter.
+
 **changes : {object}** - An object with any combination of possible new values for the popup's properties
 
 ```javascript
@@ -85,7 +93,9 @@ useful.css.select({
 ```
 
 **rule : {string}** - The CSS Rule for the intended target(s) of the script.
+
 **handler : {function}** - The public function that starts the script.
+
 **data : {object}** - Name-value pairs with configuration data.
 
 ### Using jQuery
