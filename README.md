@@ -2,6 +2,8 @@
 
 A link is opened in a modal window layer and animated using CSS3 transitions. It can be modified and closed from within the iframe.
 
+Try the <a href="http://www.woollymittens.nl/useful/default.php?url=modal">modal demo</a>.
+
 ## How to use the script
 
 The stylesheet is best included in the header of the document.
