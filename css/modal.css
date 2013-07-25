@@ -14,6 +14,11 @@
     width: 100%;
     z-index: 10000;
   }
+  div#modalDialog * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
 
   /*
   	Background

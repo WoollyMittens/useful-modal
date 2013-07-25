@@ -1,12 +1,9 @@
 /*
 	Example Styling for a Pin Board Carousel
 */
-
 @media all {
-
 	@import "compass/css3";
 	@import "compass/utilities";
-
 	/*
 		Modal Dialog
 	*/
@@ -18,8 +15,10 @@
 		top : 0px;
 		width : 100%;
 		z-index : 10000;
+		* {
+			@include box-sizing(border-box);
+		}
 	}
-
 	/*
 		Background
 	*/
@@ -45,7 +44,6 @@
 			visibility : visible;
 		}
 	}
-
 	/*
 		Foreground
 	*/
@@ -74,7 +72,6 @@
 			visibility : visible;
 		}
 	}
-
 	/*
 		Content
 	*/
@@ -126,17 +123,10 @@
 			}
 		}
 	}
-
 }
-
 @media (min-width: 1200px) {}
-
 @media (min-width: 980px) and (max-width: 1199px) {}
-
 @media (min-width: 768px) and (max-width: 979px) {}
-
 @media (max-width: 767px) {}
-
 @media (max-width: 480px) {}
-
 @media print {}
