@@ -3,6 +3,12 @@
 */
 @media all {
   /*
+  	Definitions
+  */
+  /*
+  	Buttons
+  */
+  /*
   	Modal Dialog
   */
   div#modalDialog {
@@ -71,9 +77,7 @@
     -moz-transition-timing-function: ease;
     -o-transition-timing-function: ease;
     transition-timing-function: ease;
-    background: #e7e7e7;
-    border: solid 1px #7e838c;
-    border-radius: 6px 6px 0 0;
+    background: #fff;
     height: 474px;
     left: 50%;
     margin: -227px 0 0 -343px;
@@ -97,42 +101,31 @@
   	Content
   */
   div#modalDialog div#modalDialog_foreground button#modalDialog_closer {
+    font-size: 24px;
+    font-size: 1.5rem;
     background: Transparent none;
     border: none;
-    color: #333;
+    color: #fff;
     cursor: pointer;
-    font-size: 18px;
-    font-size: 1.5rem;
     font-weight: bold;
     height: 24px;
+    line-height: 24px;
     padding: 0;
     overflow: hidden;
     position: absolute;
     right: 12px;
-    text-shadow: #ccc 1px 1px 0;
     top: 6px;
     width: 24px;
   }
   div#modalDialog div#modalDialog_foreground h1#modalDialog_title {
-    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(3%, #ffffff), color-stop(3%, #cccccc), color-stop(97%, #999999), color-stop(97%, #666666), color-stop(100%, #666666));
-    background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 3%, #cccccc 3%, #999999 97%, #666666 97%, #666666 100%);
-    background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 3%, #cccccc 3%, #999999 97%, #666666 97%, #666666 100%);
-    background: -o-linear-gradient(top, #ffffff 0%, #ffffff 3%, #cccccc 3%, #999999 97%, #666666 97%, #666666 100%);
-    background: linear-gradient(top, #ffffff 0%, #ffffff 3%, #cccccc 3%, #999999 97%, #666666 97%, #666666 100%);
-    -webkit-border-radius: 6px 6px 0 0;
-    -moz-border-radius: 6px 6px 0 0;
-    -ms-border-radius: 6px 6px 0 0;
-    -o-border-radius: 6px 6px 0 0;
-    border-radius: 6px 6px 0 0;
-    background-color: #ccc;
-    color: #333;
-    font-size: 15px;
+    font-size: 20px;
     font-size: 1.25rem;
+    background-color: #ff6a00;
+    color: #fff;
     height: 40px;
     line-height: 38px;
     margin: 0;
     padding: 0 15px 0 15px;
-    text-shadow: #ccc 1px 1px 0;
   }
   div#modalDialog div#modalDialog_foreground iframe#modalDialog_content {
     border: none;
@@ -140,13 +133,52 @@
     width: 668px;
   }
 
-  div#modalDialog.yellow div#modalDialog_foreground h1#modalDialog_title {
-    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffcc), color-stop(3%, #ffffcc), color-stop(3%, #cccc99), color-stop(97%, #999966), color-stop(97%, #666633), color-stop(100%, #666633));
-    background: -webkit-linear-gradient(top, #ffffcc 0%, #ffffcc 3%, #cccc99 3%, #999966 97%, #666633 97%, #666633 100%);
-    background: -moz-linear-gradient(top, #ffffcc 0%, #ffffcc 3%, #cccc99 3%, #999966 97%, #666633 97%, #666633 100%);
-    background: -o-linear-gradient(top, #ffffcc 0%, #ffffcc 3%, #cccc99 3%, #999966 97%, #666633 97%, #666633 100%);
-    background: linear-gradient(top, #ffffcc 0%, #ffffcc 3%, #cccc99 3%, #999966 97%, #666633 97%, #666633 100%);
-    background-color: #cc9;
-    color: #330 !important;
+  div#modalDialog.alternate div#modalDialog_foreground h1#modalDialog_title {
+    background-color: #6699cc;
+    color: #fff !important;
+  }
+}
+@media all {
+  button, .button {
+    -webkit-transition-property: background-color;
+    -moz-transition-property: background-color;
+    -o-transition-property: background-color;
+    transition-property: background-color;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+    -moz-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    transition-timing-function: ease;
+    height: 48px;
+    height: 3rem;
+    line-height: 48px;
+    line-height: 3rem;
+    padding-top: 0px;
+    padding-top: 0rem;
+    padding-right: 16px;
+    padding-right: 1rem;
+    padding-bottom: 0px;
+    padding-bottom: 0rem;
+    padding-left: 16px;
+    padding-left: 1rem;
+    background-color: #ff6a00;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    overflow: visible;
+    text-decoration: none;
+  }
+  button:hover, .button:hover {
+    background-color: #ff9800;
+    color: #fff;
+    text-decoration: none;
+  }
+  button.disabled, button.disabled:hover, .button.disabled, .button.disabled:hover {
+    background-color: #7f7f7f;
   }
 }

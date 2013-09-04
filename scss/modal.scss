@@ -1,12 +1,18 @@
 /*
 	Example Styling for a Pin Board Carousel
 */
+
 @media all {
+
 	@import "compass/css3";
 	@import "compass/utilities";
+	@import "definitions";
+	@import "buttons";
+
 	/*
 		Modal Dialog
 	*/
+
 	div#modalDialog {
 		height : 100%;
 		left : 0px;
@@ -19,9 +25,11 @@
 			@include box-sizing(border-box);
 		}
 	}
+
 	/*
 		Background
 	*/
+
 	div#modalDialog {
 		div#modalDialog_background {
 			@include transition-property(all);
@@ -44,17 +52,17 @@
 			visibility : visible;
 		}
 	}
+
 	/*
 		Foreground
 	*/
+
 	div#modalDialog {
 		div#modalDialog_foreground {
 			@include transition-property(all);
 			@include transition-duration(0.3s);
 			@include transition-timing-function(ease);
-			background : #e7e7e7;
-			border : solid 1px #7e838c;
-			border-radius : 6px 6px 0 0;
+			background : #fff;
 			height : 474px;
 			left : 50%;
 			margin : -227px 0 0 -343px;
@@ -72,40 +80,37 @@
 			visibility : visible;
 		}
 	}
+
 	/*
 		Content
 	*/
+
 	div#modalDialog {
 		div#modalDialog_foreground {
 			button#modalDialog_closer {
+				@include rem('font-size', 1.5);
 				background : Transparent none;
 				border : none;
-				color : #333;
+				color : #fff;
 				cursor : pointer;
-				font-size : 18px;
-				font-size : 1.5rem;
 				font-weight : bold;
 				height : 24px;
+				line-height : 24px;
 				padding : 0;
 				overflow : hidden;
 				position : absolute;
 				right : 12px;
-				text-shadow: #ccc 1px 1px 0;
 				top : 6px;
 				width : 24px;
 			}
 			h1#modalDialog_title {
-				@include background(linear-gradient(top, #fff 0%, #fff 3%, #ccc 3%, #999 97%, #666 97%, #666 100%));
-				@include border-radius(6px 6px 0 0);
-				background-color : #ccc;
-				color : #333;
-				font-size : 15px;
-				font-size :	1.25rem;
+				@include rem('font-size', 1.25);
+				background-color : $color-passive;
+				color : #fff;
 				height : 40px;
 				line-height : 38px;
 				margin : 0;
 				padding : 0 15px 0 15px;
-				text-shadow: #ccc 1px 1px 0;
 			}
 			iframe#modalDialog_content {
 				border : none;
@@ -114,15 +119,15 @@
 			}
 		}
 	}
-	div#modalDialog.yellow {
+	div#modalDialog.alternate {
 		div#modalDialog_foreground {
 			h1#modalDialog_title {
-				@include background(linear-gradient(top, #ffc 0%, #ffc 3%, #cc9 3%, #996 97%, #663 97%, #663 100%));
-				background-color : #cc9;
-				color : #330 !important;
+				background-color : #6699cc;
+				color : #fff !important;
 			}
 		}
 	}
+
 }
 @media (min-width: 1200px) {}
 @media (min-width: 980px) and (max-width: 1199px) {}

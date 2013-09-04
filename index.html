@@ -33,21 +33,13 @@
 				<p>
 					<a class="openModal button" href="./html/popup.html" title="Modal Dialog">Open Modal Dialog</a>
 				</p>
-				<script src="./js/useful.modal.js"></script>
+				<script src="./js/modal.min.js"></script>
 				<script>
 				//<!--
-					useful.css.select({
-						rule : '.openModal',
-						handler : useful.modal.setup,
-						data : {
-							'id' : 'modalDialog',
-							'class' : null,
-							'title' : null,
-							'href' : null,
-							'width' : null, // inherited from stylesheet
-							'height' : null // inherited from stylesheet
-						}
+					var modal = new useful.Modal( document.querySelectorAll('.openModal'), {
+						'id' : 'modalDialog'
 					});
+					modal.start();
 				//-->
 				</script>
 				<!-- Cut above this -->

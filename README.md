@@ -2,9 +2,9 @@
 
 A link is opened in a modal window layer and animated using CSS3 transitions. It can be modified and closed from within the iframe.
 
-Try the <a href="http://www.woollymittens.nl/useful/default.php?url=modal">modal demo</a>.
+Try the <a href="http://www.woollymittens.nl/useful/default.php?url=modal">demo</a>.
 
-## How to use the script
+## How to include the script
 
 The stylesheet is best included in the header of the document.
 
@@ -15,7 +15,7 @@ The stylesheet is best included in the header of the document.
 This include can be added to the header or placed inline before the script is invoked.
 
 ```html
-<script src="./js/useful.modal.js"></script>
+<script src="./js/modal.min.js"></script>
 ```
 
 To enable the use of HTML5 tags in Internet Explorer 8 and lower, include *html5.js*. To provide an alternative for *document.querySelectorAll* in Internet Explorer 8 and lower, include *jQuery*. To enable CSS3 transition animations in Internet Explorer 9 and lower, include *jQuery UI* as well.
@@ -28,27 +28,26 @@ To enable the use of HTML5 tags in Internet Explorer 8 and lower, include *html5
 <![endif]-->
 ```
 
-### Using vanilla JavaScript
+## How to start the script
 
 This is the safest way of starting the script, but allows for only one target element at a time.
 
 ```javascript
-var parent = documentGetElementById('id');
-useful.modal.setup(parent, {
-	'id' : 'modalDialog',
-	'class' : null,
-	'title' : null,
-	'href' : null,
-	'width' : null,
-	'height' : null
+var modal = new useful.Modal( document.querySelectorAll('.openModal'), {
+	'id' : 'modalDialog'
 });
+modal.start();
 ```
 
-**id : {string}** - The ID attribute of an element somewhere in the document.
+**id : {string}** - The ID of the modal popup.
 
-**parent : {DOM node}** - The DOM element around which the functionality is centred.
+## How to control the script
 
-**id : {string}** - The ID of the modal popup the script will create.
+### Open
+
+```javascript
+modal.open({'class' : 'default', 'title' : 'Modal Dialog', 'href' : './html/popup.html', 'width' : null, 'height' : null})
+```
 
 **class : {string}** - An optional CSS class name for the modal popup the script will create.
 
@@ -60,62 +59,27 @@ useful.modal.setup(parent, {
 
 **height : {integer}** - Overrides the height of the modal popup in pixels. By default this is defined in the stylesheet.
 
-```javascript
-var changes = {'id' : 'modalDialog', 'class' : 'yellow', 'title' : 'Altered Modal Dialog', 'href' : null, 'width' : 400, 'height' : 300};
-useful.modal.update(changes)
-```
-
-**id : {string}** - The ID of the popup to alter.
-
-**changes : {object}** - An object with any combination of possible new values for the popup's properties
+### Update
 
 ```javascript
-useful.modal.close({'id' : 'modalDialog'});
+modal.update({'class' : 'yellow', 'title' : 'Altered Modal Dialog', 'href' : null, 'width' : 400, 'height' : 300})
 ```
 
-**id : {string}** - The ID of the popup to close.
+Changes the properties of the popup.
 
-### Using document.querySelectorAll
-
-This method allows CSS Rules to be used to apply the script to one or more nodes at the same time.
+### Close
 
 ```javascript
-useful.css.select({
-	rule : '.openModal',
-	handler : useful.modal.setup,
-	data : {
-		'id' : 'modalDialog',
-		'class' : null,
-		'title' : null,
-		'href' : null,
-		'width' : null,
-		'height' : null
-	}
-});
+modal.close();
 ```
 
-**rule : {string}** - The CSS Rule for the intended target(s) of the script.
+Closes the popup.
 
-**handler : {function}** - The public function that starts the script.
+## Prerequisites
 
-**data : {object}** - Name-value pairs with configuration data.
-
-### Using jQuery
-
-This method is similar to the previous one, but uses jQuery for processing the CSS rule.
-
-```javascript
-$('.openModal').each(function (index, element) {
-	useful.modal.setup(element, {
-		'id' : 'modalDialog',
-		'class' : null,
-		'title' : null,
-		'href' : null,
-		'width' : null,
-		'height' : null
-	});
-});
-```
+To concatenate and minify the script yourself, the following prerequisites are required:
++ https://github.com/WoollyMittens/useful-transitions
++ https://github.com/WoollyMittens/useful-polyfills
 
 ## License
 This work is licensed under a Creative Commons Attribution 3.0 Unported License. The latest version of this and other scripts by the same author can be found at http://www.woollymittens.nl/
