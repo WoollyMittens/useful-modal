@@ -47,7 +47,7 @@
 				options.height = (element.getAttribute('data-modal-height')) ? parseInt(element.getAttribute('data-modal-height'), 10) : null;
 				// open the modal dialog
 				context.open(options);
-			}
+			};
 		};
 		// shows contents in a modal popup - options = {class:'themeName', title:'Lorem Ipsum', href:'about:blank', width:640, height:480}
 		this.open = function (options) {
