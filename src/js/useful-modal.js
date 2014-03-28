@@ -32,6 +32,8 @@
 				// set the onclick handler
 				context.objs[a].addEventListener('click', this.onOpen(context.objs[a], context), false);
 			}
+			// disable the start function so it can't be started twice
+			this.start = function () {};
 		};
 		// click handler
 		this.onOpen = function (element, context) {
@@ -202,6 +204,8 @@
 				}
 			}
 		};
+		// go
+		this.start();
 	};
 
 }(window.useful = window.useful || {}));
