@@ -36,7 +36,8 @@
 				<script src="./inc/js/useful-modal.js"></script>
 				<script>
 				//<!--
-					var modal = new useful.Modal( document.querySelectorAll('.openModal'), {
+					var modal = new useful.Modal().init({
+						'elements' : document.querySelectorAll('.openModal'),
 						'id' : 'modalDialog'
 					});
 				//-->

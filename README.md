@@ -28,10 +28,9 @@ To enable the use of HTML5 tags in Internet Explorer 8 and lower, include *html5
 
 ## How to start the script
 
-This is the safest way of starting the script, but allows for only one target element at a time.
-
 ```javascript
-var modal = new useful.Modal( document.querySelectorAll('.openModal'), {
+var modal = new useful.Modal().init({
+	'elements' : document.querySelectorAll('.openModal'),
 	'id' : 'modalDialog'
 });
 ```
