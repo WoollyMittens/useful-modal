@@ -463,18 +463,18 @@ var useful = useful || {};
 useful.Modal = useful.Modal || function () {};
 
 // extend the constructor
-useful.Modal.prototype.init = function (cfg) {
+useful.Modal.prototype.init = function (config) {
 	// properties
 	"use strict";
-	this.cfg = cfg;
-	this.objs = cfg.elements;
+	this.config = config;
+	this.elements = config.elements;
 	// methods
 	this.start = function () {
 		var a, b, _this = this;
 		// for all the provided objects
-		for (a = 0, b = _this.objs.length; a < b; a += 1) {
+		for (a = 0, b = _this.elements.length; a < b; a += 1) {
 			// set the onclick handler
-			_this.objs[a].addEventListener('click', this.onOpen(_this.objs[a]), false);
+			_this.elements[a].addEventListener('click', this.onOpen(_this.elements[a]), false);
 		}
 		// disable the start function so it can't be started twice
 		this.init = function () {};
@@ -500,39 +500,39 @@ useful.Modal.prototype.init = function (cfg) {
 	this.open = function (options) {
 		var _this = this;
 		// if an existing modal window exists
-		var modalWrapper = document.getElementById(this.cfg.id);
+		var modalWrapper = document.getElementById(this.config.id);
 		if (modalWrapper) {
 			// quickly remove it
 			modalWrapper.parentNode.removeChild(modalWrapper);
 		}
 		// create a wrapper for the popup
 		modalWrapper = document.createElement('DIV');
-		modalWrapper.setAttribute('id', this.cfg.id);
+		modalWrapper.setAttribute('id', this.config.id);
 		modalWrapper.className = options['class'];
 		// create the popup background
 		var modalBackground = document.createElement('DIV');
-		modalBackground.id = this.cfg.id + '_background';
-		modalBackground.className = this.cfg.id + '_background_hidden';
+		modalBackground.id = this.config.id + '_background';
+		modalBackground.className = this.config.id + '_background_hidden';
 		// create the popup foreground
 		var modalForeground = document.createElement('DIV');
-		modalForeground.id = this.cfg.id + '_foreground';
-		modalForeground.className = this.cfg.id + '_foreground_hidden';
+		modalForeground.id = this.config.id + '_foreground';
+		modalForeground.className = this.config.id + '_foreground_hidden';
 		// create the popup title
 		var modalTitle = document.createElement('H1');
 		modalTitle.innerHTML = options.title;
-		modalTitle.id = this.cfg.id + '_title';
+		modalTitle.id = this.config.id + '_title';
 		// create the popup closer
 		var modalCloser = document.createElement('BUTTON');
 		modalCloser.innerHTML = 'X';
-		modalCloser.id = this.cfg.id + '_closer';
+		modalCloser.id = this.config.id + '_closer';
 		modalCloser.addEventListener('click', function (event) {
 			_this.close(_this);
 			event.preventDefault();
 		}, false);
 		// create the popup content
 		var modalContent = document.createElement('IFRAME');
-		modalContent.id = this.cfg.id + '_content';
-		modalContent.name = this.cfg.id + '_iframe';
+		modalContent.id = this.config.id + '_content';
+		modalContent.name = this.config.id + '_iframe';
 		modalContent.setAttribute('frameborder', 0);
 		// paste the modal window together
 		modalWrapper.appendChild(modalBackground);
@@ -544,7 +544,7 @@ useful.Modal.prototype.init = function (cfg) {
 		document.body.appendChild(modalWrapper);
 		// apply the given dimensions
 		this.update({
-			'id' : _this.cfg.id,
+			'id' : _this.config.id,
 			'width' : options.width,
 			'height' : options.height
 		});
@@ -557,10 +557,10 @@ useful.Modal.prototype.init = function (cfg) {
 		}
 		// reveal the background
 		setTimeout(function () {
-			useful.transitions.byClass(modalBackground, _this.cfg.id + '_background_hidden', _this.cfg.id + '_background_visible');
+			useful.transitions.byClass(modalBackground, _this.config.id + '_background_hidden', _this.config.id + '_background_visible');
 			// reveal the foreground
 			setTimeout(function () {
-				useful.transitions.byClass(modalForeground, _this.cfg.id + '_foreground_hidden', _this.cfg.id + '_foreground_visible');
+				useful.transitions.byClass(modalForeground, _this.config.id + '_foreground_hidden', _this.config.id + '_foreground_visible');
 				// load the contents of the iframe
 				setTimeout(function () {
 					modalContent.src = options.href;
@@ -572,16 +572,16 @@ useful.Modal.prototype.init = function (cfg) {
 	this.close = function (options) {
 		var _this = this;
 		// if the modal popup node exists
-		var modalWrapper = document.getElementById(this.cfg.id);
+		var modalWrapper = document.getElementById(this.config.id);
 		if (modalWrapper) {
-			var modalForeground = document.getElementById(this.cfg.id + '_foreground');
-			var modalBackground = document.getElementById(this.cfg.id + '_background');
+			var modalForeground = document.getElementById(this.config.id + '_foreground');
+			var modalBackground = document.getElementById(this.config.id + '_background');
 			// hide the foreground
 			setTimeout(function () {
-				useful.transitions.byClass(modalForeground, _this.cfg.id + '_foreground_visible', _this.cfg.id + '_foreground_hidden');
+				useful.transitions.byClass(modalForeground, _this.config.id + '_foreground_visible', _this.config.id + '_foreground_hidden');
 				// hide the background
 				setTimeout(function () {
-					useful.transitions.byClass(modalBackground, _this.cfg.id + '_background_visible', _this.cfg.id + '_background_hidden');
+					useful.transitions.byClass(modalBackground, _this.config.id + '_background_visible', _this.config.id + '_background_hidden');
 					// remove the popup
 					setTimeout(function () {
 						modalWrapper.parentNode.removeChild(modalWrapper);
@@ -600,14 +600,14 @@ useful.Modal.prototype.init = function (cfg) {
 	// resizes an open modal popup - options = {class:'themeName', title:'Lorem Ipsum', href:'about:blank', width:640, height:480, theme:keyword}
 	this.update = function (options) {
 		// if the modal popup node exists
-		var modalWrapper = document.getElementById(this.cfg.id);
+		var modalWrapper = document.getElementById(this.config.id);
 		if (modalWrapper) {
 			// get the target nodes
-			modalWrapper = document.getElementById(this.cfg.id);
-			var modalBackground = document.getElementById(this.cfg.id + '_background');
-			var modalForeground = document.getElementById(this.cfg.id + '_foreground');
-			var modalTitle = document.getElementById(this.cfg.id + '_title');
-			var modalContent = document.getElementById(this.cfg.id + '_content');
+			modalWrapper = document.getElementById(this.config.id);
+			var modalBackground = document.getElementById(this.config.id + '_background');
+			var modalForeground = document.getElementById(this.config.id + '_foreground');
+			var modalTitle = document.getElementById(this.config.id + '_title');
+			var modalContent = document.getElementById(this.config.id + '_content');
 			// if there's a theme
 			if (options['class']) {
 				modalWrapper.className = options['class'];
