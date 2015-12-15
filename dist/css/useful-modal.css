@@ -28,7 +28,6 @@ Applies the "clearfix" hack to a container with floating content
 /*
 	Modal Dialog
 */
-/* line 7, ../../src/scss/useful-modal.scss */
 div#modalDialog {
   height: 100%;
   left: 0px;
@@ -36,17 +35,13 @@ div#modalDialog {
   _position: absolute;
   top: 0px;
   width: 100%;
-  z-index: 10000;
-}
-/* line 15, ../../src/scss/useful-modal.scss */
-div#modalDialog * {
-  box-sizing: border-box;
-}
+  z-index: 10000; }
+  div#modalDialog * {
+    box-sizing: border-box; }
 
 /*
 	Background
 */
-/* line 23, ../../src/scss/useful-modal.scss */
 div#modalDialog div#modalDialog_background {
   transition-property: all;
   transition-duration: 0.3s;
@@ -57,25 +52,19 @@ div#modalDialog div#modalDialog_background {
   position: absolute;
   top: 0px;
   width: 100%;
-  z-index: 11000;
-}
-/* line 35, ../../src/scss/useful-modal.scss */
+  z-index: 11000; }
+
 div#modalDialog .modalDialog_background_hidden {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
-  visibility: hidden;
-}
-/* line 39, ../../src/scss/useful-modal.scss */
+  visibility: hidden; }
+
 div#modalDialog .modalDialog_background_visible {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
   opacity: 0.6;
-  visibility: visible;
-}
+  visibility: visible; }
 
 /*
 	Foreground
 */
-/* line 48, ../../src/scss/useful-modal.scss */
 div#modalDialog div#modalDialog_foreground {
   transition-property: all;
   transition-duration: 0.3s;
@@ -87,25 +76,19 @@ div#modalDialog div#modalDialog_foreground {
   position: absolute;
   top: 50%;
   width: 668px;
-  z-index: 12000;
-}
-/* line 61, ../../src/scss/useful-modal.scss */
+  z-index: 12000; }
+
 div#modalDialog .modalDialog_foreground_hidden {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
-  visibility: hidden;
-}
-/* line 65, ../../src/scss/useful-modal.scss */
+  visibility: hidden; }
+
 div#modalDialog .modalDialog_foreground_visible {
-  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
-  visibility: visible;
-}
+  visibility: visible; }
 
 /*
 	Content
 */
-/* line 75, ../../src/scss/useful-modal.scss */
 div#modalDialog div#modalDialog_foreground button#modalDialog_closer {
   font-size: 18px;
   font-size: 1.5rem;
@@ -121,9 +104,8 @@ div#modalDialog div#modalDialog_foreground button#modalDialog_closer {
   position: absolute;
   right: 12px;
   top: 6px;
-  width: 24px;
-}
-/* line 91, ../../src/scss/useful-modal.scss */
+  width: 24px; }
+
 div#modalDialog div#modalDialog_foreground h1#modalDialog_title {
   font-size: 15px;
   font-size: 1.25rem;
@@ -132,17 +114,13 @@ div#modalDialog div#modalDialog_foreground h1#modalDialog_title {
   height: 40px;
   line-height: 38px;
   margin: 0;
-  padding: 0 15px 0 15px;
-}
-/* line 100, ../../src/scss/useful-modal.scss */
+  padding: 0 15px 0 15px; }
+
 div#modalDialog div#modalDialog_foreground iframe#modalDialog_content {
   border: none;
   height: 434px;
-  width: 668px;
-}
+  width: 668px; }
 
-/* line 109, ../../src/scss/useful-modal.scss */
 div#modalDialog.alternate div#modalDialog_foreground h1#modalDialog_title {
   background-color: #6699cc;
-  color: #fff !important;
-}
+  color: #fff !important; }

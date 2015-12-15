@@ -12,11 +12,15 @@ useful.Modal = useful.Modal || function () {};
 
 // extend the constructor
 useful.Modal.prototype.init = function (config) {
-	// properties
+
+	// PROPERTIES
+	
 	"use strict";
 	this.config = config;
 	this.elements = config.elements;
-	// methods
+
+	// METHODS
+	
 	this.start = function () {
 		var a, b, _this = this;
 		// for all the provided objects

@@ -1,5 +1,5 @@
-@import "compass/css3";
-@import "compass/utilities";
+
+
 @import "mixins";
 /*
 	Modal Dialog
@@ -13,7 +13,7 @@ div#modalDialog {
 	width : 100%;
 	z-index : 10000;
 	* {
-		@include box-sizing(border-box);
+		box-sizing: border-box;
 	}
 }
 /*
@@ -21,9 +21,9 @@ div#modalDialog {
 */
 div#modalDialog {
 	div#modalDialog_background {
-		@include transition-property(all);
-		@include transition-duration(0.3s);
-		@include transition-timing-function(ease);
+		transition-property: all;
+		transition-duration: 0.3s;
+		transition-timing-function: ease;
 		background : #000;
 		height : 100%;
 		left : 0px;
@@ -33,11 +33,11 @@ div#modalDialog {
 		z-index : 11000;
 	}
 	.modalDialog_background_hidden {
-		@include opacity(0);
+		opacity: 0;
 		visibility : hidden;
 	}
 	.modalDialog_background_visible {
-		@include opacity(0.6);
+		opacity: 0.6;
 		visibility : visible;
 	}
 }
@@ -46,9 +46,9 @@ div#modalDialog {
 */
 div#modalDialog {
 	div#modalDialog_foreground {
-		@include transition-property(all);
-		@include transition-duration(0.3s);
-		@include transition-timing-function(ease);
+		transition-property: all;
+		transition-duration: 0.3s;
+		transition-timing-function: ease;
 		background : #fff;
 		height : 474px;
 		left : 50%;
@@ -59,11 +59,11 @@ div#modalDialog {
 		z-index : 12000;
 	}
 	.modalDialog_foreground_hidden {
-		@include opacity(0);
+		opacity: 0;
 		visibility : hidden;
 	}
 	.modalDialog_foreground_visible {
-		@include opacity(1);
+		opacity: 1;
 		visibility : visible;
 	}
 }
