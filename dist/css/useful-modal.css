@@ -37,14 +37,18 @@ div#modalDialog {
   width: 100%;
   z-index: 10000; }
   div#modalDialog * {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box; }
 
 /*
 	Background
 */
 div#modalDialog div#modalDialog_background {
+  -webkit-transition-property: all;
   transition-property: all;
+  -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
   background: #000;
   height: 100%;
@@ -66,8 +70,11 @@ div#modalDialog .modalDialog_background_visible {
 	Foreground
 */
 div#modalDialog div#modalDialog_foreground {
+  -webkit-transition-property: all;
   transition-property: all;
+  -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
   background: #fff;
   height: 474px;
