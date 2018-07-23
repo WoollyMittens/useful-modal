@@ -1,53 +1,48 @@
 /*
 	Source:
-	van Creij, Maurice (2014). "_this.js: A simple modal dialog", version 20141127, http://www.woollymittens.nl/.
+	van Creij, Maurice (2018). "_this.js: A simple modal dialog", http://www.woollymittens.nl/.
 
 	License:
 	This work is licensed under a Creative Commons Attribution 3.0 Unported License.
 */
 
-// create the constructor if needed
-var useful = useful || {};
-useful.Modal = useful.Modal || function () {};
 
-// extend the constructor
-useful.Modal.prototype.init = function (config) {
+// establish the class
+var Modal = function (config) {
 
 	// PROPERTIES
-	
-	"use strict";
+
 	this.config = config;
 	this.elements = config.elements;
 
 	// METHODS
-	
+
 	this.start = function () {
-		var a, b, _this = this;
+		var a, b;
 		// for all the provided objects
-		for (a = 0, b = _this.elements.length; a < b; a += 1) {
+		for (a = 0, b = this.elements.length; a < b; a += 1) {
 			// set the onclick handler
-			_this.elements[a].addEventListener('click', this.onOpen(_this.elements[a]), false);
+			this.elements[a].addEventListener('click', this.onOpen.bind(this, this.elements[a]));
 		}
 		// disable the start function so it can't be started twice
 		this.init = function () {};
 	};
+
 	// click handler
-	this.onOpen = function (element) {
-		var _this = this;
-		return function (event) {
-			// cancel the default action
-			event.preventDefault();
-			// get the options from the target element
-			var options = {};
-			options['class'] = (element.getAttribute('data-modal-class')) ? element.getAttribute('data-modal-class') : '';
-			options.title = (element.title) ? element.title : element.innerHTML;
-			options.href = element.href;
-			options.width = (element.getAttribute('data-modal-width')) ? parseInt(element.getAttribute('data-modal-width'), 10) : null;
-			options.height = (element.getAttribute('data-modal-height')) ? parseInt(element.getAttribute('data-modal-height'), 10) : null;
-			// open the modal dialog
-			_this.open(options);
-		};
+	this.onOpen = function (element, evt) {
+		// cancel the default action
+		evt.preventDefault();
+		// get the options from the target element
+		var options = {};
+		options['class'] = (element.getAttribute('data-modal-class')) ? element.getAttribute('data-modal-class') : '';
+		options.title = (element.title) ? element.title : element.innerHTML;
+		options.href = element.href;
+		options.width = (element.getAttribute('data-modal-width')) ? parseInt(element.getAttribute('data-modal-width'), 10) : null;
+		options.height = (element.getAttribute('data-modal-height')) ? parseInt(element.getAttribute('data-modal-height'), 10) : null;
+		// open the modal dialog
+		this.open(options);
 	};
+
 	// shows contents in a modal popup - options = {class:'themeName', title:'Lorem Ipsum', href:'about:blank', width:640, height:480}
 	this.open = function (options) {
 		var _this = this;
@@ -109,10 +104,10 @@ useful.Modal.prototype.init = function (config) {
 		}
 		// reveal the background
 		setTimeout(function () {
-			useful.transitions.byClass(modalBackground, _this.config.id + '_background_hidden', _this.config.id + '_background_visible');
+			transitions.byClass(modalBackground, _this.config.id + '_background_hidden', _this.config.id + '_background_visible');
 			// reveal the foreground
 			setTimeout(function () {
-				useful.transitions.byClass(modalForeground, _this.config.id + '_foreground_hidden', _this.config.id + '_foreground_visible');
+				transitions.byClass(modalForeground, _this.config.id + '_foreground_hidden', _this.config.id + '_foreground_visible');
 				// load the contents of the iframe
 				setTimeout(function () {
 					modalContent.src = options.href;
@@ -120,6 +115,7 @@ useful.Modal.prototype.init = function (config) {
 			}, 500);
 		}, 500);
 	};
+
 	// closes the modal popup
 	this.close = function (options) {
 		var _this = this;
@@ -130,10 +126,10 @@ useful.Modal.prototype.init = function (config) {
 			var modalBackground = document.getElementById(this.config.id + '_background');
 			// hide the foreground
 			setTimeout(function () {
-				useful.transitions.byClass(modalForeground, _this.config.id + '_foreground_visible', _this.config.id + '_foreground_hidden');
+				transitions.byClass(modalForeground, _this.config.id + '_foreground_visible', _this.config.id + '_foreground_hidden');
 				// hide the background
 				setTimeout(function () {
-					useful.transitions.byClass(modalBackground, _this.config.id + '_background_visible', _this.config.id + '_background_hidden');
+					transitions.byClass(modalBackground, _this.config.id + '_background_visible', _this.config.id + '_background_hidden');
 					// remove the popup
 					setTimeout(function () {
 						modalWrapper.parentNode.removeChild(modalWrapper);
@@ -149,6 +145,7 @@ useful.Modal.prototype.init = function (config) {
 			}
 		}
 	};
+
 	// resizes an open modal popup - options = {class:'themeName', title:'Lorem Ipsum', href:'about:blank', width:640, height:480, theme:keyword}
 	this.update = function (options) {
 		// if the modal popup node exists
@@ -200,12 +197,14 @@ useful.Modal.prototype.init = function (config) {
 			}
 		}
 	};
+
+	// EVENTS
+
 	// go
 	this.start();
-	return this;
 };
 
 // return as a require.js module
 if (typeof module !== 'undefined') {
-	exports = module.exports = useful.Modal;
+	exports = module.exports = Modal;
 }
