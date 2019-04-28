@@ -9,13 +9,32 @@ Try the <a href="http://www.woollymittens.nl/default.php?url=useful-modal">demo<
 The stylesheet is best included in the header of the document.
 
 ```html
-<link rel="stylesheet" href="./css/modal.css"/>
+<link rel="stylesheet" href="css/modal.css"/>
 ```
 
 This include can be added to the header or placed inline before the script is invoked.
 
 ```html
-<script src="./js/modal.js"></script>
+<script src="lib/transitions.js"></script>
+<script src="js/modal.js"></script>
+```
+
+Or use [Require.js](https://requirejs.org/).
+
+```js
+requirejs([
+	'lib/transitions.js',
+	'js/modal.js'
+], function(transitions, Modal) {
+	...
+});
+```
+
+Or import into an MVC framework.
+
+```js
+var transitions = require('lib/transitions.js');
+var Modal = require('js/modal.js');
 ```
 
 ## How to start the script

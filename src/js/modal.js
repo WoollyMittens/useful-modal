@@ -205,5 +205,5 @@ var Modal = function (config) {
 };
 
 // return as a require.js module
-if (typeof define != 'undefined') define(['modal'], function () { return Modal });
+if (typeof define != 'undefined') define([], function () { return Modal });
 if (typeof module != 'undefined') module.exports = Modal;
